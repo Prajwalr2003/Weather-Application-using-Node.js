@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <script src="https://kit.fontawesome.com/51f17f962b.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+    <div class="container min-vh-100 d-flex align-items-center justify-content-center">
+        <div class="px-2 py-5" style="border-radius: 10px;">
+            <div id="weathercon" class="pb-5" style="text-align:center;">
+                <i class="fa-solid fa-sun" style="color:#cfd51d; font-size:100px;"></i>
+            </div>
+           
+            <div class="info" style="text-align:center;">
+                <h2 class="location"><i class="fa-solid fa-street-view" style="margin-right:10px;">
+                    </i>{%location%},{%country%}</h2>
+                <p id="date">WED | OCT 23 | 10:49AM</p>
+                <h1 class="temp">{%tempval%}&deg;C</h1>
+                <p class="tempmin_max">Min {%tempmin%}&deg;C | Max {%tempmax%}&deg;C</p>
+            </div>
+            
+        </div>
+    </div>
+    <script>
+        let weathercon = document.getElementById("weathercon");
+
+        const tempStatus = "{%tempStatus%}";
+
+        if (tempStatus === "Sunny") {
+            weathercon.innerHTML = "<i class='fa-solid fa-sun' style='color:#fcf403; font-size:100px;'></i>";
+        } else if (tempStatus === "Clouds") {
+            weathercon.innerHTML = "<i class='fa-solid fa-cloud' style='color:#03cefc; font-size:100px;'></i>";
+        } else if (tempStatus === "Rain") {
+            weathercon.innerHTML = "<i class='fa-solid fa-cloud-moon-rain' style='color:#03c2fc; font-size:100px;'></i>";
+        }
+
+        const curDate = document.getElementById("date");
+
+        const getCurrentDay = () => {
+            var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            let currentDay = new Date();
+            // console.log(weekday[currentDay.getDay()]);
+            let day = weekday[currentDay.getDay()];
+            return day;
+        }
+        // getCurrentDay();
+
+        const getCurrentTime = () => {
+            var months = ["Jan", "Feb", "Mar", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
+            var currentTime = new Date();
+            var month = months[currentTime.getMonth()];
+            var date = currentTime.getDate();
+
+            let hours = currentTime.getHours();
+            let mins = currentTime.getMinutes();
+            let periods = "AM";
+
+            if (hours > 11) {
+                periods = "PM";
+                if (hours > 12) {
+                    hours -= 12;
+                }
+            }
+
+            if (mins < 10) {
+                mins = "0" + mins;
+            }
+
+            // console.log(month + " " + date +" " + hours+":"+mins+periods);
+
+            return `${month} ${date} | ${hours}:${mins}${periods}`;
+        }
+        getCurrentTime();
+        setInterval(getCurrentTime, 1000);
+
+        curDate.innerHTML = getCurrentDay() + " | " + getCurrentTime();
+    </script>
+</body>
+
+</html>
