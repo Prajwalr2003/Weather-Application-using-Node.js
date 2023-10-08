@@ -4,7 +4,7 @@
 
 
 ## Description:
-This repository houses a collection of weather application projects that leverage a stack of web technologies to provide real-time weather information. These projects serve as a practical demonstration of using HTML, CSS, JavaScript, and Node.js to create dynamic and user-friendly weather applications. The core functionality is achieved by integrating the OpenWeatherMap global services API.
+This repository consist of weather application project that leverage a stack of web technologies to provide real-time weather information. These projects serve as a practical demonstration of using HTML, CSS, JavaScript, and Node.js to create dynamic and user-friendly weather applications. The core functionality is achieved by integrating the OpenWeatherMap global services API.
 
 ## Key Features:
 
