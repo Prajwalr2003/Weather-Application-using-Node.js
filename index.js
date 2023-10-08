@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 var requests = require('requests');
 const homeFile = fs.readFileSync("index.html",'utf-8');
-const city = "amravati";
+const city = "Pune";
 
 const replaceVal = (tempVal, orgVal) => {
     let temperature = tempVal.replace("{%tempval%}",(orgVal.main.temp-273.15).toFixed(2));
@@ -36,6 +36,6 @@ const server = http.createServer((req,res)=>{
     }
 });
 
-server.listen(8000, "127.0.0.1",()=>{
-    console.log("Connection established");
+server.listen(8000,"127.0.0.1",()=>{
+    console.log(`Connection established`);
 })

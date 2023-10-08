@@ -1,9 +1,0 @@
-https://api.openweathermap.org/data/2.5/weather?q=Pune&appid=
-&appid=acbfc1c7114e7310c7d62be6031cbc45
-
-https://api.openweathermap.org/data/2.5/weather?q=London&appid=ce93cdcef61c908d3831755b4ebb42db
-
-ce93cdcef61c908d3831755b4ebb42db
-
-
-https://api.openweathermap.org/data/2.5/weather?q=Pune&appid=ce93cdcef61c908d3831755b4ebb42db 
